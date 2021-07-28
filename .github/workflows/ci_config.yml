@@ -23,3 +23,9 @@ jobs:
     - run: flutter pub get
     - run: flutter test
     - run: flutter build web
+    - name: deploy hosting on firebase
+      uses: w9jds/firebase-action@master
+      with:
+        args: deploy --only hosting
+      env:
+        FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
